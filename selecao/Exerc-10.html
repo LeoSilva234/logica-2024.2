@@ -1,0 +1,46 @@
+<script>  
+// Entrada: leitura de três valores inteiros
+let valor1 = parseFloat(prompt("Digite o primeiro valor"));
+let valor2 = parseFloat(prompt("Digite o segundo valor"));
+let valor3 = parseFloat(prompt("Digite o terceiro valor"));
+
+// Verifica se os valores são iguais
+if (valor1 === valor2 || valor1 === valor3 || valor2 === valor3) {
+    alert("Os valores não podem ser iguais! Tente novamente.");
+} else {
+    let menor, meio, maior;
+
+    // Ordenação manual dos valores em ordem crescente
+    if (valor1 < valor2 && valor1 < valor3) {
+        menor = valor1;
+        if (valor2 < valor3) {
+            meio = valor2;
+            maior = valor3;
+        } else {
+            meio = valor3;
+            maior = valor2;
+        }
+    } else if (valor2 < valor1 && valor2 < valor3) {
+        menor = valor2;
+        if (valor1 < valor3) {
+            meio = valor1;
+            maior = valor3; 
+        } else {
+            meio = valor3;
+            maior = valor1;
+        }
+    } else {
+        menor = valor3;
+        if (valor1 < valor2) {
+            meio = valor1;
+            maior = valor2;
+        } else {
+            meio = valor2;
+            maior = valor1;
+        }
+    }
+
+    // Exibe os valores em ordem crescente
+    alert("Valores em ordem crescente: " + menor + ", " + meio + ", " + maior);
+}
+</script>
