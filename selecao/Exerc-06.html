@@ -1,21 +1,17 @@
 <script>
-//6) Reescreva o programa do exercício anterior considerando o zero como neutro, ou seja, se for digitado o valor zero, escrever a palavra zero
-
-let valor = parseFloat(prompt("digite um valor"))
-
-
-//processamento
+//8. Verificação da idade de voto Declaração: Crie um programa que verifique se uma pessoa pode votar com base no ano de seu nascimento. Considere que a idade mínima para votar é de 16 anos.
+ 
+let datadenasc = parseFloat(prompt("DIGITE SUA DATA DE NAISCIMENTO"))
+let anoAtual = new Date().getFullYear()
+let idade = anoAtual - datadenasc
 let resposta = ""
-if (valor ==0){
-    resposta = "zero"
-} else if(valor > 0) {
-    resposta = ("positivo")
+if(idade >= 16) {
+    resposta = "PODE VOTAR"
 } else {
-    resposta = "negativo"
+    resposta = "NÂO PODE VOTAR"
 }
 
-//saida
-document.write("O valor é "+ resposta)
+document.write("VOCE " + resposta)
 
 
 
@@ -25,4 +21,3 @@ document.write("O valor é "+ resposta)
 
 
 </script>
-

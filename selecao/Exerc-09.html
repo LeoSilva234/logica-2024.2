@@ -1,19 +1,30 @@
 <script>
-////As maçãs custam R$ 0,30 cada se forem compradas menos do que uma dúzia, e R$ 0,25 se forem compradas pelo menos doze. Escreva um programa que leia o número de maçãs compradas, calcule e escreva o valor total da compra.
+    // 9. Calculando o valor das maçãs
+    // Uma fruteira oferece um desconto para a compra de maçãs de uma dúzia. 
+    // O programa calcula o valor total a ser pago, considerando o preço por unidade.
 
-//entrada 
-let  numerodemaça = parseFloat(prompt("quantas maças foram compradas"))
+    // Entrada
+    let numeroDeMacas = parseInt(prompt("Quantas maçãs foram compradas?"));
 
-//processamento
-let ValorTotal = ""
-let preçoduzia = 0.25
-let preçomenos = 0.30
-if (numerodemaça > 12 ) {
-    ValorTotal = numerodemaça * preçoduzia
-} else {
-    ValorTotal = numerodemaça * preçomenos
-}
-//saida
-document.write ("Foram compradas " + ValorTotal)
+    // Preços unitários
+    let precoDuzia = 0.25;  // preço por maçã se comprar 12 ou mais
+    let precoMenos = 0.30;  // preço por maçã se comprar menos de 12
 
+    // Processamento
+    let valorTotal = 0;
+
+    // Função para calcular o valor total
+    function Calculomaca() {
+        if (numeroDeMacas >= 12) { // Considerando "uma dúzia ou mais"
+            valorTotal = numeroDeMacas * precoDuzia;
+        } else {
+            valorTotal = numeroDeMacas * precoMenos;
+        }
+    }
+
+    // Chamada da função para realizar o cálculo
+    Calculomaca();
+
+    // Saída
+    document.write("Você comprou " + numeroDeMacas + " maçãs e o valor total é R$ " + valorTotal.toFixed(2));
 </script>
