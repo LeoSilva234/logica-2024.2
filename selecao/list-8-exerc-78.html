@@ -1,0 +1,34 @@
+<script>
+//78) Tem-se um conjunto de dados contendo a altura e o sexo (masculino, feminino) de 50pessoas. Fazer um algoritmo que calcule e escreva:• A maior e a menor altura do grupo;• A média de altura das mulheres;• O número de homens.
+
+let resposta = ""
+let maioraltura = -Infinity
+let menoraltura = Infinity
+let somaalturadamulheres = 0;
+let numMulheres = 0;
+let numehomens = 0;
+
+for(let i = 0; i<50; i++) {
+   let altura = parseFloat(prompt("DIGITE A ALTURA"))
+let sexo = prompt("DIGITE O SEXO")
+if(altura >maioraltura) {
+    maioraltura = altura
+}
+if(altura < menoraltura) {
+    menoraltura = altura
+}
+if(sexo ===`f`) {
+    somaalturadamulheres += altura
+    numMulheres++;
+
+} else if (sexo === `h`) {
+    numehomens++;
+}
+}
+let mediaAlturadasmulheres = numMulheres > 0 ? somaalturadamulheres  / numMulheres : 0;
+alert("Maior altura: " + maioraltura + " metros.");
+alert("Menor altura: " + menoraltura + " metros.");
+alert("Média das alturas das mulheres: " + mediaAlturaMulheres.toFixed(2) + " metros.");
+alert("Número de homens: " + numeHomens);
+
+</script>
