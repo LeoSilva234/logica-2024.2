@@ -1,0 +1,22 @@
+<script>
+
+let maior = 0; // O maior número começa como 0, mas pode ser ajustado para um valor menor dependendo dos números inseridos.
+let numero = -1; // Inicia com um valor diferente de 0 para garantir que a primeira comparação aconteça.
+
+while (numero !== 0) { 
+    // Entrada
+    numero = parseFloat(prompt("Digite um número :")); 
+    
+    // Processamento
+    if (numero > maior) { 
+        maior = numero; 
+    }
+}
+
+// Saída
+document.write("O maior número é: " + maior + "<br>");
+
+
+
+
+</script>
