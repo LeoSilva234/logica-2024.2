@@ -1,0 +1,76 @@
+<script>
+// Inicializando as variáveis
+let titular = "Leonardo";  
+let saldo = 0;             
+let tipo = "corrente";     
+
+// Função para depositar um valor na conta
+function deposito(valor) {
+    if (valor > 0) {
+        saldo = saldo + valor;  
+        alert(`Depósito de R$${valor} realizado com sucesso.`);
+    } else {
+        alert("Valor inválido para depósito. O valor deve ser maior que zero.");
+    }
+}
+
+// Função para retirar um valor da conta
+function retirar(valor) {
+    if (valor > 0 && valor <= saldo) {
+        saldo = saldo - valor;  
+        alert(`Retirada de R$${valor} realizada com sucesso.`);
+    } else if (valor > saldo) {
+        alert("Erro: Saldo insuficiente para a retirada.");
+    } else {
+        alert("Erro: O valor de retirada deve ser maior que zero.");
+    }
+}
+
+// Função para consultar o saldo atual da conta
+function consultar_saldo() {
+    alert(`Saldo atual: R$${saldo}`);
+}
+
+// Função para exibir os dados da conta
+function exibir_dados() {
+    alert(`Titular: ${titular}`);
+    alert(`Tipo de Conta: ${tipo}`);
+    alert(`Saldo Atual: R$${saldo}`);
+}
+
+// Função para exibir o menu e capturar a escolha do usuário
+function exibir_menu() {
+    let opcao = prompt(
+        "Escolha uma opção:\n" +
+        "1. Depositar\n" +
+        "2. Retirar\n" +
+        "3. Consultar Saldo\n" +
+        "4. Exibir Dados\n" +
+        "5. Sair"
+    );
+    return parseInt(opcao);  
+}
+
+// Loop para o menu interativo com while
+let opcao;
+while (true) {
+    opcao = exibir_menu();  
+    
+    if (opcao === 1) {  
+        let depositoValor = parseFloat(prompt("Digite o valor para depósito:"));
+        deposito(depositoValor);
+    } else if (opcao === 2) {  
+        let retirarValor = parseFloat(prompt("Digite o valor para retirada:"));
+        retirar(retirarValor);
+    } else if (opcao === 3) {  
+        consultar_saldo();
+    } else if (opcao === 4) {  
+        exibir_dados();
+    } else if (opcao === 5) {  
+        alert("Saindo do programa...");
+        break;  
+    } else {
+        alert("Opção inválida. Tente novamente.");
+    }
+}
+</script>
