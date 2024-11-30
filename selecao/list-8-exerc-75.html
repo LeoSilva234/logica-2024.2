@@ -1,0 +1,21 @@
+<script>
+    // Entrada
+    let resposta = "";
+    let valorinicio = parseFloat(prompt("Digite o valor inicial"));
+    let valorfinal = parseFloat(prompt("Digite o valor final"));
+    
+    // Processamento
+    function contImpares(inicio, final) {
+        if (final < inicio) return "VALORES INVALIDOS"
+        // Laço de repetição para verificar números ímpares
+        for (let cont = inicio; cont <= final; cont++) {
+            if (cont % 2 !== 0) {  // Verifica se o número é ímpar
+                resposta += "NUMERO IMPAR: " + cont + "<br>"; // Adiciona o número ímpar à resposta
+            }
+        }
+        return resposta;
+    }
+    
+    // Saída
+    document.write("Mostra números ímpares entre " + valorinicio + " e " + valorfinal + ": <br>" + contImpares(valorinicio, valorfinal));
+    </script>

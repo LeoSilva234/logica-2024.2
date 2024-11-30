@@ -1,0 +1,41 @@
+<script>
+    // Entrada
+    let resposta = "";
+    let maior = -Infinity;  // Inicializa com o menor valor possível
+    let menor = Infinity;   // Inicializa com o maior valor possível
+    let soma = 0;           // Variável para armazenar a soma dos números
+    
+    // Processamento: Leitura de 50 valores inteiros e positivos
+    for (let cont = 1; cont <= 50; cont++) {
+        // Solicita ao usuário o valor para cada iteração
+        let valor = parseInt(prompt("Digite o valor " + cont));
+    
+        // Verifica se o valor é positivo
+        if (valor > 0) {
+            // Atualiza o maior valor, se necessário
+            if (valor > maior) {
+                maior = valor;
+            }
+    
+            // Atualiza o menor valor, se necessário
+            if (valor < menor) {
+                menor = valor;
+            }
+    
+            // Soma o valor para o cálculo da média
+            soma += valor;
+        } else {
+            // Se o valor não for positivo, solicite novamente
+            cont--; // Decrementa o contador para garantir 50 entradas válidas
+            alert("Por favor, insira um valor positivo!");
+        }
+    }
+    
+    // Cálculo da média
+    let media = soma / 50;
+    
+    // Saída: Exibe os resultados
+    resposta = maior
+    document.write(resposta);
+    
+    </script>

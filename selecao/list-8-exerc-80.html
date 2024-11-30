@@ -1,0 +1,43 @@
+<script>
+let lucroMenorque10 = 0;
+let lucroEntre10e20 = 0;
+let lucroMaiorque20 = 0;
+let totalCompra = 0;
+let totalVenda = 0;
+let lucroTotal = 0;
+
+while (true) {
+    let nomeMercadoria = prompt("DIGITE O NOME DA MERCADORIA (ou 'Fim' para encerrar)");
+    if (nomeMercadoria.toLowerCase() === 'fim') break;  // Verifica se o usuário digitou 'fim' para encerrar o loop
+
+    let precoCompra = parseFloat(prompt("DIGITE O PREÇO DA COMPRA"));
+    let precoVenda = parseFloat(prompt("DIGITE O PREÇO DA VENDA"));
+
+    let lucro = precoVenda - precoCompra;  // Calcula o lucro da mercadoria
+    let percentualLucro = (lucro / precoCompra) * 100;  // Calcula o lucro percentual
+
+    // Contabiliza o lucro conforme as faixas
+    if (percentualLucro < 10) {
+        lucroMenorque10++;
+    } else if (percentualLucro >= 10 && percentualLucro <= 20) {
+        lucroEntre10e20++;
+    } else {
+        lucroMaiorque20++;
+    }
+
+    // Atualiza os totais de compra, venda e lucro
+    totalCompra += precoCompra;
+    totalVenda += precoVenda;
+    lucroTotal += lucro;
+}
+
+// Exibe os resultados diretamente no console
+console.log("Relatório de Lucros das Mercadorias:");
+console.log(`Mercadorias com lucro menor que 10%: ${lucroMenorque10}`);
+console.log(`Mercadorias com lucro entre 10% e 20%: ${lucroEntre10e20}`);
+console.log(`Mercadorias com lucro maior que 20%: ${lucroMaiorque20}`);
+console.log(`Valor total de compra: R$ ${totalCompra.toFixed(2)}`);
+console.log(`Valor total de venda: R$ ${totalVenda.toFixed(2)}`);
+console.log(`Lucro total: R$ ${lucroTotal.toFixed(2)}`);
+
+</script>
