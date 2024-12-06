@@ -1,0 +1,25 @@
+<script>
+// Inicializa o vetor vazio
+let vetores = [];
+
+// Passo 1: Preenche o vetor com 30 valores fornecidos pelo usuário
+for (let i = 0; i < 30; i++) {
+    // Solicita ao usuário que insira um valor e converte para inteiro
+    let valor = parseInt(prompt(`Digite o valor para a posição ${i + 1} do vetor:`), 10);
+    // Adiciona o valor ao vetor
+    vetores.push(valor);
+}
+
+// Passo 2: Exibe o vetor original
+document.write("Vetor Original:", vetores);
+
+// Passo 3: Substitui todos os valores nulos (zero) por 1
+for (let i = 0; i < vetores.length; i++) {
+    if (vetores[i] === 0) {
+        vetores[i] = 1; // Substitui zero por 1
+    }
+}
+
+// Passo 4: Exibe o vetor modificado
+document.write("Vetor Modificado:", vetores);
+</script>

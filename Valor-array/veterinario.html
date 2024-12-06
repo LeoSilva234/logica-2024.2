@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica VetCare</title>
+  <style>
+    /* Reset básico */
+    body, h1, h2, h3, p, ul, li, a, form, input, select, button {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Corpo */
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f7f7f7;
+    }
+
+    /* Cabeçalho */
+    header {
+      background: #4CAF50; /* Verde claro brilhante */
+      color: white;
+      padding: 20px 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #2196F3; /* Azul */
+    }
+
+    /* Banner */
+    .banner {
+      background: linear-gradient(45deg, #4CAF50, #2196F3); /* Gradiente verde/azul */
+      color: white;
+      text-align: center;
+      padding: 150px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .banner h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      font-family: 'Roboto', sans-serif;
+      letter-spacing: 2px;
+      text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 2s ease-out forwards;
+    }
+
+    .banner .cta-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .banner button {
+      padding: 18px 40px;
+      background: #2196F3; /* Azul */
+      border: none;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .banner button:hover {
+      background: #1976D2; /* Azul mais escuro */
+      transform: scale(1.1);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .banner select {
+      padding: 12px 20px;
+      font-size: 18px;
+      border-radius: 50px;
+      border: 1px solid #ddd;
+      background: white;
+      color: #333;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .banner select:hover {
+      background: #4CAF50; /* Verde claro brilhante */
+      color: white;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Seção de Serviços */
+    .services {
+      padding: 80px 10%;
+      text-align: center;
+      background: #E1F5FE; /* Azul claro */
+    }
+
+    .services h2 {
+      font-size: 36px;
+      color: #4CAF50; /* Verde claro brilhante */
+      margin-bottom: 50px;
+    }
+
+    .service-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .service-item {
+      background: #fff;
+      padding: 30px;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .service-item:hover {
+      transform: scale(1.05);
+    }
+
+    .service-item img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .service-item h3 {
+      font-size: 28px;
+      margin: 15px 0;
+      color: #2196F3; /* Azul */
+    }
+
+    .service-item p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    /* Agendamento */
+    .schedule {
+      background: #80C1B3; /* Verde claro */
+      color: white;
+      padding: 80px 10%;
+      text-align: center;
+    }
+
+    .schedule h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    .schedule form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .schedule form input,
+    .schedule form select,
+    .schedule form button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .schedule form button {
+      background: #2196F3; /* Azul */
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .schedule form button:hover {
+      background: #1976D2; /* Azul mais escuro */
+    }
+
+    /* Localização */
+    .location {
+      background: #FFFFFF;
+      color: #333;
+      padding: 80px 10%;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .location h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #4CAF50; /* Verde claro brilhante */
+    }
+
+    .location p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .location iframe {
+      border: none;
+      width: 100%;
+      height: 400px;
+      border-radius: 10px;
+    }
+
+    /* Depoimentos */
+    .testimonials {
+      background: #E1F5FE; /* Azul claro */
+      padding: 60px 10%;
+      text-align: center;
+    }
+
+    .testimonials h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #2196F3; /* Azul */
+    }
+
+    .testimonial-item {
+      background: #fff;
+      padding: 30px;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .testimonial-item p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    .testimonial-item h3 {
+      margin-top: 10px;
+      font-size: 20px;
+      color: #333;
+      font-style: italic;
+    }
+
+    /* Rodapé */
+    footer {
+      background: #4CAF50; /* Verde claro brilhante */
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer a {
+      color: #2196F3; /* Azul */
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header>
+    <h1>VetCare</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Serviços</a></li>
+        <li><a href="#schedule">Agendamento</a></li>
+        <li><a href="#testimonials">Depoimentos</a></li>
+        <li><a href="#location">Localização</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <section class="banner">
+    <h2>Amor e Cuidado para o seu Melhor Amigo</h2>
+    <div class="cta-container">
+      <button>Agende Agora</button>
+      <select>
+        <option value="">Selecione o tipo de cachorro</option>
+        <option value="pequeno">Pequeno</option>
+        <option value="medio">Médio</option>
+        <option value="grande">Grande</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section id="services" class="services">
+    <h2>Serviços que Oferecemos</h2>
+    <div class="service-items">
+      <div class="service-item">
+        <img src="https://place-puppy.com/300x200" alt="Vacinas">
+        <h3>Vacinas</h3>
+        <p>Proteja a saúde do seu animal com vacinas essenciais.</p>
+      </div>
+      <div class="service-item">
+        <img src="https://place-puppy.com/300x200" alt="Cirurgias">
+        <h3>Cirurgias</h3>
+        <p>Realizamos cirurgias com segurança e tecnologia de ponta.</p>
+      </div>
+      <div class="service-item">
+        <img src="https://place-puppy.com/300x200" alt="Exames">
+        <h3>Exames</h3>
+        <p>Realizamos exames para diagnósticos rápidos e eficazes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agendamento -->
+  <section id="schedule" class="schedule">
+    <h2>Agende uma Consulta</h2>
+    <form action="#">
+      <input type="text" placeholder="Nome do Pet" required>
+      <input type="text" placeholder="Nome do Dono" required>
+      <select required>
+        <option value="">Selecione o Serviço</option>
+        <option value="consulta">Consulta Veterinária</option>
+        <option value="vacinas">Vacinas</option>
+        <option value="cirurgia">Cirurgia</option>
+      </select>
+      <input type="date" required>
+      <button type="submit">Agendar</button>
+    </form>
+  </section>
+
+  <!-- Localização -->
+  <section id="location" class="location">
+    <h2>Visite-nos</h2>
+    <p>Estamos localizados em um ponto de fácil acesso para garantir o melhor cuidado ao seu pet!</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2345345.152869562!2d-46.678056!3d-23.550520!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5be72a3bbf85%3A0x0!2zMjMzw6B3b3J0bywgVG9yZCBkYSBTYW5h!5e0!3m2!1spt-BR!2sbr!4v1632333029232!5m2!1spt-BR!2sbr" width="100%" height="400" allowfullscreen="" loading="lazy"></iframe>
+  </section>
+
+  <!-- Depoimentos -->
+  <section id="testimonials" class="testimonials">
+    <h2>Depoimentos</h2>
+    <div class="testimonial-item">
+      <p>"A VetCare cuidou muito bem do meu cachorro. Atendimento excelente e rápido!"</p>
+      <h3>- João Silva</h3>
+    </div>
+    <div class="testimonial-item">
+      <p>"A melhor clínica veterinária que já levei meu pet. Super recomendo!"</p>
+      <h3>- Maria Oliveira</h3>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2024 VetCare | <a href="#">Política de Privacidade</a></p>
+  </footer>
+</body>
+</html>

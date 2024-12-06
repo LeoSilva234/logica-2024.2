@@ -1,0 +1,13 @@
+<script>
+    let senha = prompt("senha")
+    function validarSenha(password) {
+        let resposta = ""
+        if (password == "1234") {
+            resposta = "ACESSO PERMITIDO"
+        } else {
+            resposta = "Acesso Negado"
+        }
+        return resposta
+    }
+    document.write(validarSenha(senha))
+</script>
